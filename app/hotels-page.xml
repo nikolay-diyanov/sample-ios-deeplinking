@@ -1,0 +1,5 @@
+<Page style="background-color: white;" xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+  <StackLayout>
+    <Label text="Hotels" cssClass="title"/>
+  </StackLayout>
+</Page>
