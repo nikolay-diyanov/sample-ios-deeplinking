@@ -18,7 +18,7 @@ application.addEventListener(application.launchEvent, function(options) {
 
     var defaultSearchableIndex = CSSearchableIndex.defaultSearchableIndex();
 
-	var hotelsAttributeSet = CSSearchableItemAttributeSet.alloc().initWithItemContentType(kUTTypeImage);
+	var hotelsAttributeSet = CSSearchableItemAttributeSet.alloc().initWithItemContentType(kUTTypeItem);
 
     // Set properties that describe attributes of the item such as title, description, and image.
     hotelsAttributeSet.title = "Hotels";
@@ -32,7 +32,7 @@ application.addEventListener(application.launchEvent, function(options) {
     // Index the item.
     defaultSearchableIndex.indexSearchableItemsCompletionHandler([hotelsItem], function (error) {} );
 
-    var carsAttributeSet = CSSearchableItemAttributeSet.alloc().initWithItemContentType(kUTTypeImage);
+    var carsAttributeSet = CSSearchableItemAttributeSet.alloc().initWithItemContentType(kUTTypeItem);
 
     // Set properties that describe attributes of the item such as title, description, and image.
     carsAttributeSet.title = "Cars";
@@ -62,14 +62,12 @@ application.addEventListener("applicationContinueUserActivityRestorationHandler"
         if (uniqueIdentifier == "hotelsID") {
             var navigatedPage = {
                 moduleName: "hotels-page",
-                animated: false
             };
         }
 
         if (uniqueIdentifier == "carsID") {
             var navigatedPage = {
                 moduleName: "cars-page",
-                animated: false
             };
         }
 
