@@ -1,0 +1,9 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="pageNavigatingTo">
+    <ScrollView>
+      <StackLayout>
+        <Image imageSource="{{ hotelImage }}" stretch="aspectFill"/>
+        <Label text="{{ hotelText }}" cssClass="detailsTitle" textWrap="true" />
+        <Label text="{{ hotelDescription }}" cssClass="detailsTitle" textWrap="true" />
+      </StackLayout>
+    </ScrollView>
+</Page>

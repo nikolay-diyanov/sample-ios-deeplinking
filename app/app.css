@@ -14,3 +14,7 @@ button {
     color: #284848;
     horizontal-align: center;
 }
+
+page {
+	background-color: white;
+}

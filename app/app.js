@@ -1,51 +1,10 @@
 var application = require("application");
 var imageSourceModule = require("image-source");
+var modelModule = require("./hotels-view-model");
+var model = modelModule.hotelsModel;
 
 application.mainModule = "main-page";
 application.cssFile = "./app.css";
-
-application.addEventListener(application.launchEvent, function(options) {
-	
-    console.log("Defining CoreSpotlight items");
-
-    var hotelsImg = imageSourceModule.fromResource("hotels").ios;
-    var hotelsData = UIImagePNGRepresentation(hotelsImg);
-    var hotelsImgData = NSData.dataWithData(hotelsData);
-
-    var carsImg = imageSourceModule.fromResource("cars").ios;
-    var carsData = UIImagePNGRepresentation(carsImg);
-    var carsImgData = NSData.dataWithData(carsData);
-
-    var defaultSearchableIndex = CSSearchableIndex.defaultSearchableIndex();
-
-	var hotelsAttributeSet = CSSearchableItemAttributeSet.alloc().initWithItemContentType(kUTTypeItem);
-
-    // Set properties that describe attributes of the item such as title, description, and image.
-    hotelsAttributeSet.title = "Hotels";
-    hotelsAttributeSet.contentDescription = "Book your room now!";
-    hotelsAttributeSet.keywords = ["accommodation, hotel, book, checkin"];
-    hotelsAttributeSet.thumbnailData = hotelsImgData;
-    
-    // Create a searchable item, specifying its ID, associated domain, and the attribute set you created earlier.
-    var hotelsItem = CSSearchableItem.alloc().initWithUniqueIdentifierDomainIdentifierAttributeSet("hotelsID", "org.NativeScript.Deeplinking", hotelsAttributeSet);
-
-    // Index the item.
-    defaultSearchableIndex.indexSearchableItemsCompletionHandler([hotelsItem], function (error) {} );
-
-    var carsAttributeSet = CSSearchableItemAttributeSet.alloc().initWithItemContentType(kUTTypeItem);
-
-    // Set properties that describe attributes of the item such as title, description, and image.
-    carsAttributeSet.title = "Cars";
-    carsAttributeSet.contentDescription = "Just drive!";
-    carsAttributeSet.keywords = ["rent-a-car, car, rent, vehicle"];
-    carsAttributeSet.thumbnailData = carsImgData;
-    
-    // Create a searchable item, specifying its ID, associated domain, and the attribute set you created earlier.
-    var carsItem = CSSearchableItem.alloc().initWithUniqueIdentifierDomainIdentifierAttributeSet("carsID", "org.NativeScript.Deeplinking", carsAttributeSet);
-
-    // Index the item.
-    defaultSearchableIndex.indexSearchableItemsCompletionHandler([carsItem], function (error) {} );
-});
 
 application.addEventListener("applicationContinueUserActivityRestorationHandler", function(args) {
 	
@@ -53,28 +12,41 @@ application.addEventListener("applicationContinueUserActivityRestorationHandler"
 
     var userActivity = args.userActivity;
 
+    var frameModule = require("ui/frame");
+    var topMost = frameModule.topmost();
+
+    if (userActivity.activityType == "com.myCompany.services") {
+        if (userActivity.userInfo.objectForKey("id") == "hotelsID")
+        {
+            topMost.navigate({ 
+                moduleName: "hotels-page"
+            });
+        }
+        else if (userActivity.userInfo.objectForKey("id") == "carsID")
+        {
+            topMost.navigate({ 
+                moduleName: "cars-page"
+            });
+        }
+    }
+
     if (userActivity.activityType == CSSearchableItemActionType) {
+
         var uniqueIdentifier = userActivity.userInfo.objectForKey(CSSearchableItemActivityIdentifier);
         
-        var frameModule = require("ui/frame");
-        var topMost = frameModule.topmost();
-
-        if (uniqueIdentifier == "hotelsID") {
-            var navigatedPage = {
-                moduleName: "hotels-page",
-            };
+        for (i = 0; i<model.hotels.length;i++)
+        {
+            if (uniqueIdentifier == model.hotels.getItem(i).id)
+            {
+                topMost.navigate({
+                    moduleName: "details-page",
+                    context: model.hotels.getItem(i)
+                });
+            }
         }
-
-        if (uniqueIdentifier == "carsID") {
-            var navigatedPage = {
-                moduleName: "cars-page",
-            };
-        }
-
-        topMost.navigate(navigatedPage);
-
-        return true;
     };
+
+    return true;
 });
 
 application.start();

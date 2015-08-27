@@ -1,5 +1,13 @@
 <Page style="background-color: white;" xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
-  <StackLayout>
-    <Label text="Hotels" cssClass="title"/>
-  </StackLayout>
+	<ListView items="{{ hotels }}" itemTap="listViewItemTap">
+		<ListView.itemTemplate>                
+            <GridLayout rows="*, auto">
+            	<Image imageSource="{{ hotelImage }}" row="0"/>
+            	<GridLayout row="1" columns="*, auto">
+					<Label text="{{ hotelText }}" col="0"/>
+					<Button text="Fav." tap="favButtonTap" col="1" />
+            	</GridLayout>
+            </GridLayout>               
+		</ListView.itemTemplate>
+    </ListView>
 </Page>
