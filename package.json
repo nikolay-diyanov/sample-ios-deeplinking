@@ -1,8 +1,5 @@
 {
 	"nativescript": {
-		"id": "org.nativescript.sampleiosdeeplinking",
-		"tns-ios": {
-			"version": "1.2.2"
-		}
+		"id": "org.nativescript.sampleiosdeeplinking"
 	}
 }
