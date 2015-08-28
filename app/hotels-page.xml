@@ -5,7 +5,7 @@
             	<Image imageSource="{{ hotelImage }}" row="0"/>
             	<GridLayout row="1" columns="*, auto">
 					<Label text="{{ hotelText }}" col="0"/>
-					<Button text="Fav." tap="favButtonTap" col="1" />
+					<Button text="Add" tap="favButtonTap" col="1" />
             	</GridLayout>
             </GridLayout>               
 		</ListView.itemTemplate>

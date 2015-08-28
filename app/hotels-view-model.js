@@ -15,6 +15,7 @@ var item1 = {
     hotelImage: imageFromSource("01.jpg"),
     hotelText: "Amsterdam Palace",
     hotelDescription: "A great place to stay in Amsterdam!",
+    hotelPhoneNumber: "1234567890",
     isFavourite: false
 };
 var item2 = {
@@ -22,6 +23,7 @@ var item2 = {
     hotelImage: imageFromSource("02.jpg"),
     hotelText: "Frozen Kingdom",
     hotelDescription: "A great place to stay in Amsterdam!",
+    hotelPhoneNumber: "1234567890",
     isFavourite: false
 };
 var item3 = {
@@ -29,6 +31,7 @@ var item3 = {
     hotelImage: imageFromSource("03.jpg"),
     hotelText: "Gothic Suites",
     hotelDescription: "For the old-timers!",
+    hotelPhoneNumber: "1234567890",
     isFavourite: false
 };
 var item4 = {
@@ -36,6 +39,7 @@ var item4 = {
     hotelImage: imageFromSource("04.jpg"),
     hotelText: "The Eye Hotel",
     hotelDescription: "A great view for you!",
+    hotelPhoneNumber: "1234567890",
     isFavourite: false
 };
 var item5 = {
@@ -43,6 +47,7 @@ var item5 = {
     hotelImage: imageFromSource("05.jpg"),
     hotelText: "Big Ben",
     hotelDescription: "In the very downtown of London",
+    hotelPhoneNumber: "1234567890",
     isFavourite: false
 };
 var item6 = {
@@ -50,6 +55,7 @@ var item6 = {
     hotelImage: imageFromSource("06.jpg"),
     hotelText: "The Great Four",
     hotelDescription: "Experience our great service!",
+    hotelPhoneNumber: "1234567890",
     isFavourite: false
 };
 var item7 = {
@@ -57,6 +63,7 @@ var item7 = {
     hotelImage: imageFromSource("07.jpg"),
     hotelText: "Sanremo Beauty",
     hotelDescription: "Like nothing else!",
+    hotelPhoneNumber: "1234567890",
     isFavourite: false
 };
 var item8 = {
@@ -64,6 +71,7 @@ var item8 = {
     hotelImage: imageFromSource("08.jpg"),
     hotelText: "Nepal Lodges",
     hotelDescription: "For the thrillseekers!",
+    hotelPhoneNumber: "1234567890",
     isFavourite: false
 };
 hotelsArray.push([item1, item2, item3, item4, item5, item6, item7, item8]);

@@ -20,7 +20,7 @@ function pageLoaded(args) {
 	var hotelsAttributeSet = CSSearchableItemAttributeSet.alloc().initWithItemContentType(kUTTypeItem);
     hotelsAttributeSet.title = "Hotels";
     hotelsAttributeSet.contentDescription = "Book your room now!";
-    hotelsAttributeSet.keywords = ["accommodation, hotel, book, checkin"];
+    hotelsAttributeSet.keywords = ["accommodation", "hotel", "book", "checkin"];
     hotelsAttributeSet.thumbnailData = hotelsImgData;
 
     var activity = NSUserActivity.alloc().initWithActivityType("com.myCompany.services");
@@ -53,11 +53,11 @@ function favButtonTap(args) {
 
     // Set properties that describe attributes of the item such as title, description, and image.
     hotelAttributeSet.title = hotelItem.hotelText;
-    hotelAttributeSet.contentDescription = "Book your room now!";
+    hotelAttributeSet.contentDescription = hotelItem.hotelDescription + " Book your room now!";
     hotelAttributeSet.keywords = ["accommodation", "hotel", "book", "checkin", hotelItem.hotelText, hotelItem.hotelDescription];
     hotelAttributeSet.thumbnailData = hotelImgData;
     hotelAttributeSet.supportsPhoneCall = 1;
-    hotelAttributeSet.phoneNumbers = ["+359883459161"];
+    hotelAttributeSet.phoneNumbers = [hotelItem.hotelPhoneNumber];
     
     // Create a searchable item, specifying its ID, associated domain, and the attribute set you created earlier.
     var hotelCSItem = CSSearchableItem.alloc().initWithUniqueIdentifierDomainIdentifierAttributeSet(hotelItem.id, "org.NativeScript.Deeplinking", hotelAttributeSet);

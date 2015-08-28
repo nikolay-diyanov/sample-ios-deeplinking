@@ -14,7 +14,7 @@ function pageLoaded(args) {
 	var carsAttributeSet = CSSearchableItemAttributeSet.alloc().initWithItemContentType(kUTTypeItem);
     carsAttributeSet.title = "Cars";
     carsAttributeSet.contentDescription = "Rent your car now and drive!";
-    carsAttributeSet.keywords = ["rent-a-car, car, rent, vehicle"];
+    carsAttributeSet.keywords = ["rent-a-car", "car", "rent", "vehicle"];
     carsAttributeSet.thumbnailData = carsImgData;
 
     var activity = NSUserActivity.alloc().initWithActivityType("com.myCompany.services");
