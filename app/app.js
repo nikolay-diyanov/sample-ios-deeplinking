@@ -16,14 +16,12 @@ application.addEventListener("applicationContinueUserActivityRestorationHandler"
     var topMost = frameModule.topmost();
 
     if (userActivity.activityType == "com.myCompany.services") {
-        if (userActivity.userInfo.objectForKey("id") == "hotelsID")
-        {
+        if (userActivity.userInfo.objectForKey("id") == "hotelsID") {
             topMost.navigate({ 
                 moduleName: "hotels-page"
             });
         }
-        else if (userActivity.userInfo.objectForKey("id") == "carsID")
-        {
+        else if (userActivity.userInfo.objectForKey("id") == "carsID") {
             topMost.navigate({ 
                 moduleName: "cars-page"
             });
@@ -31,13 +29,10 @@ application.addEventListener("applicationContinueUserActivityRestorationHandler"
     }
 
     if (userActivity.activityType == CSSearchableItemActionType) {
-
         var uniqueIdentifier = userActivity.userInfo.objectForKey(CSSearchableItemActivityIdentifier);
         
-        for (i = 0; i<model.hotels.length;i++)
-        {
-            if (uniqueIdentifier == model.hotels.getItem(i).id)
-            {
+        for (i = 0; i<model.hotels.length;i++) {
+            if (uniqueIdentifier == model.hotels.getItem(i).id) {
                 topMost.navigate({
                     moduleName: "details-page",
                     context: model.hotels.getItem(i)
