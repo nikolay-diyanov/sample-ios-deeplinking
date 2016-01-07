@@ -1,4 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="pageNavigatingTo">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="pageNavigatingTo">
     <ScrollView>
       <StackLayout>
         <Image imageSource="{{ hotelImage }}" stretch="aspectFill"/>
