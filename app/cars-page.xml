@@ -1,4 +1,4 @@
-<Page style="background-color: white;" xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+<Page style="background-color: white;" xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
   <StackLayout>
     <Label text="Cars" cssClass="title"/>
   </StackLayout>
